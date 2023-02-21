@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
+
   const sayHello = () => {
     console.log('hello there');
   };
 
   useEffect(() => {
     console.log('From use Effect');
-  })
+  }, [])
 
   sayHello();
 

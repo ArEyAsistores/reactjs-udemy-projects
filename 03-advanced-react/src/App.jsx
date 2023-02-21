@@ -1,11 +1,11 @@
-import CodeExample from "./tutorial/02-useEffect/starter/01-code-example";
-import UseEffectBasics from "./tutorial/02-useEffect/starter/02-useEffect-basics";
+
+import ShortCircuitExamples from "./tutorial/03-conditional-rendering/starter/05-short-circuit-examples";
 
 function App() {
   return (
     <div className='container'>
       {/* <h2>Advanced React</h2> */}
-      <UseEffectBasics/>
+      <ShortCircuitExamples/>
     </div>
   );
 }
