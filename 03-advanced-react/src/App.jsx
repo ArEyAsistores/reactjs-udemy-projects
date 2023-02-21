@@ -1,10 +1,11 @@
-import MultipleReturnsBasics from "./tutorial/03-conditional-rendering/starter/01-multiple-returns-basics";
+
+import ShortCircuitExamples from "./tutorial/03-conditional-rendering/starter/05-short-circuit-examples";
 
 function App() {
   return (
     <div className='container'>
       {/* <h2>Advanced React</h2> */}
-      <MultipleReturnsBasics/>
+      <ShortCircuitExamples/>
     </div>
   );
 }
