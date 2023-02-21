@@ -1,5 +1,9 @@
-const CleanupFunction = () => {
-  return <h2>cleanup function</h2>;
-};
+import React from 'react'
 
-export default CleanupFunction;
+const CleanupFunction = () => {
+  return (
+    <div>CleanupFunction</div>
+  )
+}
+
+export default CleanupFunction

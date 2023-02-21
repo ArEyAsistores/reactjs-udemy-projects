@@ -1,11 +1,10 @@
-import CodeExample from "./tutorial/02-useEffect/starter/01-code-example";
-import UseEffectBasics from "./tutorial/02-useEffect/starter/02-useEffect-basics";
+import MultipleReturnsBasics from "./tutorial/03-conditional-rendering/starter/01-multiple-returns-basics";
 
 function App() {
   return (
     <div className='container'>
       {/* <h2>Advanced React</h2> */}
-      <UseEffectBasics/>
+      <MultipleReturnsBasics/>
     </div>
   );
 }
