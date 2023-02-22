@@ -3,7 +3,7 @@ import people from './data';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const Review = () => {
-
+  
   const numberCheck = (num) => {
     if(num > people.length - 1){
       return num = 0;
@@ -13,26 +13,20 @@ const Review = () => {
     }
     return num;
   }
-
   const [index, setIndex] = useState(numberCheck(0));
   let { id, name, job, image, text } = people[index];
-  
+
   const handleNext = () => {
-    setIndex((prevState) => {
-     return numberCheck(prevState + 1)
-    });
+    setIndex((prevState) => numberCheck(prevState + 1) );
   }
   const handlePrev = () => {
-    setIndex((prevState) => {
-     return numberCheck(prevState - 1)
-    });
+    setIndex((prevState) => numberCheck(prevState - 1));
   }
 
   const handleRandom = () => {
     const randomIndex = Math.floor(Math.random() * people.length);
-    setIndex((prevState) => prevState !== randomIndex ? randomIndex : randomIndex === people.length - 1 ? 0  : randomIndex + 1);
+    setIndex((prevState) => prevState !== randomIndex ? randomIndex : numberCheck(randomIndex + 1));
   }
-
 
   return(
     <article className='review'>
