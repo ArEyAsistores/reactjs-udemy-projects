@@ -1,11 +1,12 @@
 
-import ShortCircuitExamples from "./tutorial/03-conditional-rendering/starter/05-short-circuit-examples";
+import CleanupFunction from "./tutorial/02-useEffect/starter/05-cleanup-function";
 
 function App() {
+
   return (
     <div className='container'>
       {/* <h2>Advanced React</h2> */}
-      <ShortCircuitExamples/>
+      <CleanupFunction/>
     </div>
   );
 }
