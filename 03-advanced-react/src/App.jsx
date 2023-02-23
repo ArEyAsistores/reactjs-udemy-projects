@@ -1,12 +1,12 @@
 
-import CleanupFunction from "./tutorial/02-useEffect/starter/05-cleanup-function";
+import UncontrolledInputs from "./tutorial/06-forms/starter/05-form-data";
 
 function App() {
 
   return (
     <div className='container'>
       {/* <h2>Advanced React</h2> */}
-      <CleanupFunction/>
+      <UncontrolledInputs/>
     </div>
   );
 }
