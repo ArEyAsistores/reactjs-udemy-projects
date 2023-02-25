@@ -1,30 +1,34 @@
 import { useEffect, useState } from 'react';
+import useUser from './useUser';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const FetchData = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
+  // const [user, setUser] = useState(null);
 
+  const  { isLoading, loading, isError, error, user, userData } = useUser([]);
+ 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const resp = await fetch(url);
         // console.log(resp);
         if (!resp.ok) {
-          setIsError(true);
-          setIsLoading(false);
+          error();
+          loading();
           return;
         }
 
         const user = await resp.json();
-        setUser(user);
+        userData(user);
+        
       } catch (error) {
-        setIsError(true);
+        error();
         // console.log(error);
       }
       // hide loading
-      setIsLoading(false);
+      loading();
     };
     fetchUser();
   }, []);
@@ -38,6 +42,7 @@ const FetchData = () => {
     return <h2>There was an error...</h2>;
   }
   const { avatar_url, name, company, bio } = user;
+  console.log(user);
   return (
     <div>
       <img

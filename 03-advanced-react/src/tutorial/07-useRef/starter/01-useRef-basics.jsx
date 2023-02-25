@@ -2,9 +2,24 @@ import { useEffect, useRef, useState } from 'react';
 
 const UseRefBasics = () => {
   const [value, setValue] = useState(0);
+  const refContainer = useRef(null)
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    refContainer.current.focus();
+  },[])
+
+  useEffect(() =>{
+    if (!isMounted.current){
+      isMounted.current = true;
+      return
+    }
+    console.log('hi');
+  },[value])
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(refContainer.current.value);
   };
 
   return (
@@ -14,7 +29,7 @@ const UseRefBasics = () => {
           <label htmlFor='name' className='form-label'>
             Name
           </label>
-          <input type='text' id='name' className='form-input' />
+          <input type='text' id='name' ref={refContainer} className='form-input' />
         </div>
         <button type='submit' className='btn btn-block'>
           submit
