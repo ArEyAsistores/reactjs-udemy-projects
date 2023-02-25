@@ -15,6 +15,7 @@ const ReducerBasics = () => {
           <div key={id} className='item'>
             <h4>{name}</h4>
             <button onClick={() => removeItem(id)}>remove</button>
+            
           </div>
         );
       })}
@@ -24,6 +25,13 @@ const ReducerBasics = () => {
         onClick={() => setPeople([])}
       >
         clear items
+      </button>
+      <button
+        className='btn'
+        style={{ marginTop: '2rem' }}
+        onClick={() => setPeople(data)}
+      >
+        Reset
       </button>
     </div>
   );
