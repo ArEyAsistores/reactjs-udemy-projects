@@ -1,20 +1,30 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState, useTransition } from 'react';
+const SlowComponent = lazy(() => import('./SlowComponent'))
+
 const LatestReact = () => {
   const [text, setText] = useState('');
   const [items, setItems] = useState([]);
+  const [ isPending, startTransition ] = useTransition();
+
+  const [ show, setShow ] = useState(false);
+
 
   const handleChange = (e) => {
     setText(e.target.value);
 
-    // slow down CPU
-    // const newItems = Array.from({ length: 5000 }, (_, index) => {
-    //   return (
-    //     <div key={index}>
-    //       <img src='/vite.svg' alt='' />
-    //     </div>
-    //   );
-    // });
-    // setItems(newItems);
+    startTransition(() => {
+       // slow down CPU
+    const newItems = Array.from({ length: 5000 }, (_, index) => {
+      return (
+        <div key={index}>
+          <img src='/vite.svg' alt='' />
+        </div>
+      );
+    });
+    setItems(newItems);
+    })
+
+   
   };
   return (
     <section>
@@ -28,6 +38,8 @@ const LatestReact = () => {
       </form>
       <h4>Items Below</h4>
 
+      {
+      isPending? <h1>Loading...</h1> :
       <div
         style={{
           display: 'grid',
@@ -37,6 +49,14 @@ const LatestReact = () => {
       >
         {items}
       </div>
+      }
+      <button type='button' onClick={() => setShow(!show)} className={'btn'}> toggle </button>
+
+      { show && 
+       <Suspense fallback={<h1>Loading... FALLBACK SUSPENSE</h1>}>
+        <SlowComponent/>
+       </Suspense>
+      }
     </section>
   );
 };
