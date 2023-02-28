@@ -4,6 +4,11 @@ import { useCallback } from 'react'
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
 
+const getItem = async (id) => {
+  
+}
+
+console.log(url);
 const AppProvider = ({ children }) => {
   return <AppContext.Provider value='hello'>{children}</AppContext.Provider>
 }
