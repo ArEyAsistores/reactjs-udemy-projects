@@ -16,7 +16,7 @@ const Login = () => {
         event.preventDefault();
         setUser(user => ({
             user:{
-                password: '',email: ''
+                password: '', email: ''
             }
         }))
         console.log(user);
